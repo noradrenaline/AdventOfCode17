@@ -19,5 +19,5 @@ import sys
 from collections import deque
 A = sys.argv[1]
 B = deque(A)
-B.rotate(n=1)
+B.rotate(1)
 print sum([int(i[0]) for i in zip(A, B) if i[0] == i[1]])
