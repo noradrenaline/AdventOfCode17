@@ -35,15 +35,15 @@ import itertools
 
 def triangle_product(x):
     labeled_x = zip(xrange(len(x)), x)
-    return [sorted((i[0][1], i[1][1]))
-            for i in itertools.product(labeled_x, labeled_x)
-            if i[0][0] < i[1][0]]
+    for i in itertools.product(labeled_x, labeled_x):
+        if i[0][0] < i[1][0]:
+            yield sorted((i[0][1], i[1][1]))
 
 
 def get_cell(row):
-    return [i[1] / i[0]
-            for i in triangle_product([int(row) for row in row.split()])
-            if i[1] % i[0] == 0][0]
+    for i in triangle_product([int(row) for row in row.split()]):
+        if i[1] % i[0] == 0:
+            return i[1] / i[0]
 
 
 print sum([get_cell(line) for line in fileinput.input()])
