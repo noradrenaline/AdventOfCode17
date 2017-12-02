@@ -33,17 +33,17 @@ import fileinput
 import itertools
 
 
-def is_divisible(x, y):
-    return max(x, y) % min(x, y) == 0
+def triangle_product(x):
+    labeled_x = zip(xrange(len(x)), x)
+    return [sorted((i[0][1], i[1][1]))
+            for i in itertools.product(labeled_x, labeled_x)
+            if i[0][0] < i[1][0]]
 
-def order_div(x, y):
-    return max(x, y) / min(x, y)
 
 def get_cell(row):
-    nums = [int(row) for row in row.split()]
-    lnums = zip(xrange(len(nums)), nums)
-    return [order_div(i[0][1], i[1][1])
-            for i in itertools.product(lnums, lnums)
-            if i[0][0] < i[1][0] and is_divisible(i[0][1], i[1][1])][0]
+    return [i[1] / i[0]
+            for i in triangle_product([int(row) for row in row.split()])
+            if i[1] % i[0] == 0][0]
+
 
 print sum([get_cell(line) for line in fileinput.input()])
