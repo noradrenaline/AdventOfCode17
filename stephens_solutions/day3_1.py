@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+# pylint: disable=C0103, C0111
+
+
 """
 You come across an experimental new kind of memory stored on an infinite
 two-dimensional grid.
@@ -57,7 +60,6 @@ def get_pos_on_square(x):
     p = x - odd(n-1)**2 - 1
     if n > 0:
         return list(itertools.islice(edge_traipse(n-1, n), s**2-1))[p] + n
-    else:
-        return 0
+    return 0
 
 print get_pos_on_square(int(sys.argv[1]))
