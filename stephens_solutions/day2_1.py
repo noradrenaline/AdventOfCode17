@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# pylint: disable=C0103, C0111, C0301
 
 """
 As you walk through the door, a glowing humanoid shape yells in your direction.
