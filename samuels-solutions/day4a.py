@@ -7,7 +7,9 @@ def check_passphrase(words):
 
 
 with open('day4.txt') as f:
-    total = 0
+    total_passphrases= 0
+    invalid_passphrases = 0
     for line in f:
-        total += check_passphrase(line.split())
-    print total
+        total_passphrases += 1
+        invalid_passphrases += check_passphrase(line.split())
+    print total_passphrases - invalid_passphrases
