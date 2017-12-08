@@ -103,9 +103,32 @@ while wobbly:
 # this means that one of its children should have its weight changed.
 print "the last wobbly node is " + child
 print "here are it's children's total weight:"
+lasthash = {}
+wc = {}
 for child in pdict[node].children:
+	if pdict[child].total_weight in wc:
+		wc[pdict[child].total_weight] += 1
+	else:
+		wc[pdict[child].total_weight] = 1
+	lasthash[child] = {"self":pdict[child].self_weight, "total":pdict[child].total_weight}
 	print child + " total: " + str(pdict[child].total_weight) + "; individual weight: " + str(pdict[child].self_weight)
 
-print "picking the off child is left for an exercise for the human, i'm sleepy."
+#print "picking the off child is left for an exercise for the human, i'm sleepy."
+# ugh really though, this is trivial for a person but slightly obnoxious for me
+# which is the least common weight?
 
+
+for child,stat in lasthash.iteritems():
+	if wc[stat["total"]]>1:
+		target_weight = stat["total"]
+	else:
+		bad_guy = child
+		bad_guys_total = stat["total"]
+		bad_guys_own = stat["self"]
+
+delta = bad_guys_total - target_weight
+bad_guys_target = bad_guys_own - delta
+print "the bad guy was " + bad_guy + " and he should weigh " + str(bad_guys_target)
+	
+ 
 
