@@ -1,5 +1,4 @@
 import collections
-import time
 
 jump_map = collections.defaultdict(int)
 with open('day5.txt') as f:
