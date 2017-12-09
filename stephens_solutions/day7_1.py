@@ -2,7 +2,7 @@
 
 # pylint: disable=C0103, C0111, C0301, R0903, W0622
 
-"""
+r"""
 Wandering further through the circuits of the computer, you come upon a
 tower of programs that have gotten themselves into a bit of trouble. A
 recursive algorithm has gotten out of hand, and now they're balanced
