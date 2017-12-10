@@ -71,4 +71,4 @@ def eval_instruction(instruction, registers):
 program, registers = init_program(fileinput.input())
 for instruction in program:
     eval_instruction(instruction, registers)
-print max(registers.values(), key=lambda x: x.value)
+print max(registers.values(), key=lambda x: x.value).value
