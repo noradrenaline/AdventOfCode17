@@ -21,19 +21,14 @@ day1a(int argc, char **argv)
 
 		int this = input[i] - '0';
 
-		if (i == 0) {
-			if (input[0] == input[len - 1])
-				sum += this;
-		} else {
-			if (this == prev)
-				sum += this;
-		}
+		if (((i == 0) && (input[0] == input[len - 1])) ||
+		    (this == prev))
+			sum += this;
+
 		prev = this;
 	}
 
 	printf("%d\n",sum);
-
-	free(input);
 
 	return (EXIT_SUCCESS);
 }
