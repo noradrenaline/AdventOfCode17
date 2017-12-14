@@ -31,7 +31,7 @@ day1b(int argc, char **argv)
 			sum += this;
 #else
 		/* this also works */
-		if ((input[i] - '0') == (input[((i + offset) < len) ? (i + offset) : ((i + offset) - len)] - '0'))
+		if ((input[i]) == (input[((i + offset) < len) ? (i + offset) : ((i + offset) - len)]))
 			sum += input[i] - '0';
 #endif
 	}
