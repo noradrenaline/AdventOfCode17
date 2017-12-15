@@ -1,3 +1,4 @@
 *.o
 advent
 .depend
+input/test
