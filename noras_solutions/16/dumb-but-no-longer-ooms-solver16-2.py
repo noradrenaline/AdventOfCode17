@@ -29,7 +29,7 @@ class lineup:
 
 lu = lineup(lsize)
 
-for _ in range(reps):
+for _ in xrange(reps):
 	for cmd in moves:
 		lu.dance(cmd)
 	gc.collect()
