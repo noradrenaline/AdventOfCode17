@@ -23,6 +23,7 @@ int	day1a(int, char **);
 int	day1b(int, char **);
 int	day2a(int, char **);
 int	day2b(int, char **);
+int	day3a(int, char **);
 
 int	chomp(char *);
 void	sort_two_digits(struct twodigits *);

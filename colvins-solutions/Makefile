@@ -1,3 +1,5 @@
+CFLAGS	+= -g -Wall
+
 all:
 	$(CC) $(CFLAGS) -o advent *.c
 

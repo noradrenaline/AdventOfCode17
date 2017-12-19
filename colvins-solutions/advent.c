@@ -22,6 +22,8 @@ main(int argc, char **argv)
 		r = day2a(argc, argv);
 	else if (CMP(problem,"2b"))
 		r = day2b(argc, argv);
+	else if (CMP(problem,"3a"))
+		r = day3a(argc, argv);
 	else
 		errx(EXIT_FAILURE,"bad problem");
 
