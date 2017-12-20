@@ -30,7 +30,6 @@ ymax = len(maze)
 print "Traversing your " + str(xmax) + " by " + str(ymax) + "maze."
 stepsTaken = 0;
 while x>=0 and x<xmax and y>=0 and y<ymax:
-	stepsTaken += 1
 	# printPos(y,x,maze)
 	# check for letter
 	if maze[y][x].isalnum():
@@ -38,7 +37,6 @@ while x>=0 and x<xmax and y>=0 and y<ymax:
 	# check for whitespace/error
 	elif maze[y][x] == " ":
 		print "encountered the end"
-		stepsTaken -= 1
 		break
 	# check for turn signal
 	elif maze[y][x] == "+":
@@ -58,6 +56,7 @@ while x>=0 and x<xmax and y>=0 and y<ymax:
 	
 	y += bearing[0]
 	x += bearing[1]
-		
+	stepsTaken += 1
+
 print letters
 print "Steps: " + str(stepsTaken)
