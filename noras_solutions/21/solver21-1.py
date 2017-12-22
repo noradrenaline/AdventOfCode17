@@ -65,8 +65,8 @@ def give_me_chunk(board,n):
 		# we have asked for a nonexistent chunk
 		return 0
 	# get starting row:
-	row = (n/cdim)*cdim # that integer division tho
-	col = (n%cdim)*cdim
+	row = (n/cdim)*c # that integer division tho
+	col = (n%cdim)*c
 	# so now pull the rows/columns we need
 	return ''.join([''.join(board[r][col:col+c]) for r in range(row,row+c)])
 	
