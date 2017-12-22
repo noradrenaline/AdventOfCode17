@@ -106,17 +106,27 @@ def print_board(board):
 	print "\n"
 
 print_board(board)
-for i in xrange(5):
-	board = iterate_board(board,patterns,outputs)
-	print_board(board)
+def num_full(board):
+	numfull = 0
+	for row in board:
+		for col in row:
+			if col == "#":
+				numfull += 1
+	return numfull
 
+for i in xrange(18):
+	board = iterate_board(board,patterns,outputs)
+	if i==4:
+		print "number of full after 5: " + str(num_full(board))
+#	print_board(board)
+#print_board(board)
 # i have lost it entirely, python stopped working for me. fffffffffff
-numfull = 0
-for row in board:
-	for col in row:
-		if col == "#":
-			numfull += 1
-print "number of full spaces: " + str(numfull)
+#numfull = 0
+#for row in board:
+#	for col in row:
+#		if col == "#":
+#			numfull += 1
+print "number of full spaces after 18: " + str(num_full(board))
 
 
 
