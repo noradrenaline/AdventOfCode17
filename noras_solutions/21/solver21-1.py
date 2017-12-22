@@ -70,7 +70,7 @@ def give_me_chunk(board,n):
 	# so now pull the rows/columns we need
 	return ''.join([''.join(board[r][col:col+c]) for r in range(row,row+c)])
 	
-print give_me_chunk(board,0)
+#print give_me_chunk(board,0)
 
 # now we can pull chunks which can readily be mapped to new bigger chunks, 
 # we need to loop them and re-combine.
@@ -88,8 +88,35 @@ def iterate_board(board,patterns,outputs):
 	nblen = (c+1)*cdim
 	newboard = [['-' for _ in range(nblen)] for _ in range(nblen)]
 	# then, ah dang, we could loop or what the fuck ever, man.
-	# I'll come back to this shit.
+	# this is dumb but I'm jammed up trying to make it pythonic or whatever
+	# just fucking go
+	for crow in range(cdim):
+		for ccol in range(cdim):
+			chunk = outputs[patterns[chunkarray[crow*cdim + ccol]]]
+			for irow in range(c+1):
+				for icol in range(c+1):
+					newboard[crow*(c+1)+irow][ccol*(c+1)+icol] = chunk[irow][icol]
+	return newboard
 
+	
+#let's see it work for 2 iterations on fakeinput:
+def print_board(board):
+	for r in board:
+		print ''.join(r)
+	print "\n"
+
+print_board(board)
+for i in xrange(5):
+	board = iterate_board(board,patterns,outputs)
+	print_board(board)
+
+# i have lost it entirely, python stopped working for me. fffffffffff
+numfull = 0
+for row in board:
+	for col in row:
+		if col == "#":
+			numfull += 1
+print "number of full spaces: " + str(numfull)
 
 
 
